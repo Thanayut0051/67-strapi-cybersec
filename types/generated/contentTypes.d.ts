@@ -781,6 +781,165 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiClassRoomClassRoom extends Schema.SingleType {
+  collectionName: 'class_rooms';
+  info: {
+    singularName: 'class-room';
+    pluralName: 'class-rooms';
+    displayName: 'Class Room';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    sec: Attribute.String;
+    number: Attribute.String;
+    subjects: Attribute.String;
+    dete: Attribute.String;
+    teacher: Attribute.String;
+    room: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::class-room.class-room',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::class-room.class-room',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiRoomRoom extends Schema.SingleType {
+  collectionName: 'rooms';
+  info: {
+    singularName: 'room';
+    pluralName: 'rooms';
+    displayName: 'Room';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    sec: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::room.room', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::room.room', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiStudentStudent extends Schema.SingleType {
+  collectionName: 'students';
+  info: {
+    singularName: 'student';
+    pluralName: 'students';
+    displayName: 'Student';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    fname: Attribute.String;
+    lname: Attribute.String;
+    student_id: Attribute.String;
+    number: Attribute.String;
+    sex: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::student.student',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::student.student',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSubjectSubject extends Schema.SingleType {
+  collectionName: 'subjects';
+  info: {
+    singularName: 'subject';
+    pluralName: 'subjects';
+    displayName: 'Subject';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    course_code: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::subject.subject',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::subject.subject',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTeacherTeacher extends Schema.SingleType {
+  collectionName: 'teachers';
+  info: {
+    singularName: 'teacher';
+    pluralName: 'teachers';
+    displayName: 'Teacher';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    fname: Attribute.String;
+    lname: Attribute.String;
+    taught: Attribute.String;
+    date: Attribute.String;
+    sex: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::teacher.teacher',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::teacher.teacher',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -799,6 +958,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::class-room.class-room': ApiClassRoomClassRoom;
+      'api::room.room': ApiRoomRoom;
+      'api::student.student': ApiStudentStudent;
+      'api::subject.subject': ApiSubjectSubject;
+      'api::teacher.teacher': ApiTeacherTeacher;
     }
   }
 }

@@ -1,0 +1,31 @@
+{
+  "kind": "singleType",
+  "collectionName": "students",
+  "info": {
+    "singularName": "student",
+    "pluralName": "students",
+    "displayName": "Student",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "fname": {
+      "type": "string"
+    },
+    "lname": {
+      "type": "string"
+    },
+    "student_id": {
+      "type": "string"
+    },
+    "number": {
+      "type": "string"
+    },
+    "sex": {
+      "type": "string"
+    }
+  }
+}
